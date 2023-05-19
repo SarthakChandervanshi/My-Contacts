@@ -26,7 +26,7 @@ class HomeController extends GetxController{
   FirebaseAuth auth = FirebaseAuth.instance;
   final FirebaseFirestore firestore = FirebaseFirestore.instance;
   late final CollectionReference collectionReference;
-  // 0 for not checked state yet , 1 for not signed in and 2 for signed in
+  // 0 for not checked state yet , 1 for not signed in and 2 for signed in and 3 for no internet
   var state = 0.obs;
 
   var gettingContacts = false.obs;
@@ -97,7 +97,8 @@ class HomeController extends GetxController{
 
     await documentReferencer.set(data).whenComplete(() {
       uploadedSuccessfully = true;
-      getAllContacts();
+      contacts?.value.add(ContactModel(uid: uid, firstName: firstName, lastName: lastName, gender: gender, mobileNumber: mobile));
+      contacts?.refresh();
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Contact added successfully",style: TextStyle(fontSize: 16,fontWeight: FontWeight.w600),)));
     }).catchError((e) {
       uploadedSuccessfully = false;
@@ -112,8 +113,9 @@ class HomeController extends GetxController{
 
     await documentReferencer.delete().whenComplete((){
       deletedSuccessfully = true;
+      contacts?.value.remove(contact);
+      contacts?.refresh();
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Contact deleted successfully",style: TextStyle(fontSize: 16,fontWeight: FontWeight.w600),)));
-      getAllContacts();
     }).catchError((e){
       deletedSuccessfully = false;
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString(),style: TextStyle(fontSize: 16,fontWeight: FontWeight.w600),)));
@@ -134,7 +136,8 @@ class HomeController extends GetxController{
     gettingContacts.value = true;
     QuerySnapshot querySnapshot = await collectionReference.get();
     querySnapshot.docs.map((contact) async => await contact.reference.delete()).toList();
-    getAllContacts();
+    contacts?.clear();
+    contacts?.refresh();
     gettingContacts.value = false;
   }
 }

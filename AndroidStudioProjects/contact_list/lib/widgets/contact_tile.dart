@@ -26,7 +26,6 @@ class _ContactTileState extends State<ContactTile> with AutomaticKeepAliveClient
       direction: DismissDirection.startToEnd,
       onDismissed: (DismissDirection dismissDirection){
         homeController.removeContact(context: context, contact: widget.contact);
-          homeController.contacts?.remove(widget.contact);
       },
       child: Card(
         child: ListTile(

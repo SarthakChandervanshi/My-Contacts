@@ -1,16 +1,18 @@
-# contact_list
+# My contacts
 
-A new Flutter project.
+A Flutter internship assignment project which is an app to add your contacts and delete them.
 
-## Getting Started
+Features: 
+- Add your contact with name , mobile number and gender
+- Delete your contact by swiping right
+- Delete all contacts at once
+- Sign in with google sign via Firebase Authentication 
+- Firebase Firestore used as a database for CRUD operations
 
-This project is a starting point for a Flutter application.
+## Demo Video
 
-A few resources to get you started if this is your first Flutter project:
+https://github.com/SarthakChandervanshi/My-Contacts/assets/54674615/58cd83a3-dbd7-4632-953a-28f6f04d6b1a
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+![sign in page](https://github.com/SarthakChandervanshi/My-Contacts/assets/54674615/72e67702-1339-4c7c-9434-b12b10ee4392 | width100)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+

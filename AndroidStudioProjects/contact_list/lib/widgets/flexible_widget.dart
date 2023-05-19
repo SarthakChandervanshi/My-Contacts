@@ -42,12 +42,12 @@ class _FlexibleWidgetState extends State<FlexibleWidget> {
               children: [
                 Flexible(
                   flex: 1,
-                  child: CommonTextField(hintText: "First name",textEditingController: firstName, maxLength: 100,),
+                  child: CommonTextField(hintText: "First name",textEditingController: firstName, maxLength: 100,inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[a-zA-Z]'))],),
                 ),
                 SizedBox(width: 16,),
                 Flexible(
                   flex: 1,
-                  child: CommonTextField(hintText: "Last Name",textEditingController: lastName,maxLength: 100,),
+                  child: CommonTextField(hintText: "Last Name",textEditingController: lastName,maxLength: 100,inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[a-zA-Z]'))]),
                 )
               ],
             ),
