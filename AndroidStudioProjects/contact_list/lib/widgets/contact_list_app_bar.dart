@@ -50,9 +50,12 @@ class BottomPart extends StatelessWidget with PreferredSizeWidget {
               Text("Your contacts list",style: TextStyle(fontSize: 24,fontWeight: FontWeight.w600),),
               InkWell(
                 onTap: (){
-                  homeController.deleteAllContacts();
+                  if((homeController.contacts?.length ?? 0) > 0){
+                    homeController.deleteAllContacts();
+                  }
                 },
-                child: Icon(Icons.delete,color: Colors.black,),
+                child: Obx(() => (homeController.contacts?.length ?? 0) > 0 ? Icon(Icons.delete,color: Colors.black,) : Icon(Icons.delete,color: Colors.grey,)),
+                // Obx(() => (homeController.contacts.length) > 0)Icon(Icons.delete,color: Colors.black,),
               )
             ],
           ),
