@@ -15,4 +15,5 @@ https://github.com/SarthakChandervanshi/My-Contacts/assets/54674615/58cd83a3-dbd
 
 ## Demo Photo
 
-![sign in page](https://github.com/SarthakChandervanshi/My-Contacts/assets/54674615/72e67702-1339-4c7c-9434-b12b10ee4392)
+<img src="https://github.com/SarthakChandervanshi/My-Contacts/assets/54674615/72e67702-1339-4c7c-9434-b12b10ee4392" width="220" heigh="300">
+
